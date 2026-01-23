@@ -32,7 +32,6 @@ if uploaded_file is not None:
     # --------------------------------------------------
     # Assume last column is target
     # --------------------------------------------------
-    df = pd.read_csv("data/data.csv")
     # Step 3: Drop unnecessary columns
     df.drop(columns=["id", "Unnamed: 32"], inplace=True)
     
