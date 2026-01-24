@@ -81,23 +81,25 @@ if uploaded_file is not None:
                 
         #printing confusion matrix.
         st.subheader("📊 Confusion Matrix")
+        col1, col2 = st.columns([1, 2])
         cm = confusion_matrix(y_test, y_pred)
-        fig, ax = plt.subplots()
-        sns.heatmap(
-            cm,
-            annot=True,
-            fmt="d",
-            cmap="Blues",
-            ax=ax
-        )
-        ax.set_xlabel("Predicted Label")
-        ax.set_ylabel("True Label")
-        ax.set_title("Confusion Matrix")
-        st.pyplot(fig)
-                
-        #Classification Report
-        report = classification_report(y_test, y_pred)
-        st.text(report)
+        with col1:
+            fig, ax = plt.subplots()
+            sns.heatmap(
+                cm,
+                annot=True,
+                fmt="d",
+                cmap="Blues",
+                ax=ax
+            )
+            ax.set_xlabel("Predicted Label")
+            ax.set_ylabel("True Label")
+            ax.set_title("Confusion Matrix")
+            st.pyplot(fig)
+
+        with col2:
+            #Classification Report
+            st.text(classification_report(y_test, y_pred))
     
     if result is not None:
         dataf = pd.DataFrame(
