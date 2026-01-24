@@ -30,11 +30,11 @@ def logistic_model(X,y):
     
     # Step 10: Evaluation Metrics
     baseline_metrics ={
-    "accuracy": accuracy_score(y_test, y_pred),
-    "auc": float(roc_auc_score(y_test, y_prob)),
-    "precision": precision_score(y_test, y_pred),
-    "recall": recall_score(y_test, y_pred),
-    "f1": f1_score(y_test, y_pred),
-    "mcc": float(matthews_corrcoef(y_test, y_pred))
+    "Accuracy": accuracy_score(y_test, y_pred),
+    "Auc": float(roc_auc_score(y_test, y_prob)),
+    "Precision": precision_score(y_test, y_pred),
+    "Recall": recall_score(y_test, y_pred),
+    "F1": f1_score(y_test, y_pred),
+    "MCC": float(matthews_corrcoef(y_test, y_pred))
     }
-    return baseline_metrics
+    return baseline_metrics, y_test, y_pred

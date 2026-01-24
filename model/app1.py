@@ -6,6 +6,8 @@ from sklearn.model_selection import train_test_split
 from logistic import logistic_model
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 
 st.set_page_config(page_title="ML Model Evaluation App", layout="wide")
 st.title("📊 Machine Learning Model Evaluation Dashboard")
@@ -33,14 +35,14 @@ if uploaded_file is not None:
     # --------------------------------------------------
     # Assume last column is target
     # --------------------------------------------------
-    # Step 3: Drop unnecessary columns
+    # Step 1: Drop unnecessary columns
     df.drop(columns=["id", "Unnamed: 32"], inplace=True)
     
-    # Step 4: Encode target variable
+    # Step 2: Encode target variable
     # M = 1 (Malignant), B = 0 (Benign)
     df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0}) #we are changing M and B to o,1 as in ML world string won't help.
     
-    # Step 5: Separate features and target
+    # Step 3: Separate features and target
     X = df.drop("diagnosis", axis=1) #we don't want this as an input as we have to predict this.
     y = df["diagnosis"]
     
@@ -65,12 +67,39 @@ if uploaded_file is not None:
             "XGB Classifier"
         ]
     )
+    y_test = None
+    y_pred = None
     if model_name == "Logistic Regression":
-        result = logistic_model(X,y)
-    st.subheader("📈 Model Performance")
-    st.write(result)
-    dataf = pd.DataFrame(
-    result.items(),
-    columns=["Metric", "Value"]
-    )
-    st.dataframe(dataf)
+        result, y_test, y_pred = logistic_model(X,y)
+    
+    if model_name != "Select the Model":
+        #printing model 
+        st.subheader("📈 Evaluation Matrix")
+        st.write(result)
+        
+        #printing confusion matrix.
+        st.subheader("📊 Confusion Matrix")
+        cm = confusion_matrix(y_test, y_pred)
+        fig, ax = plt.subplots()
+        sns.heatmap(
+            cm,
+            annot=True,
+            fmt="d",
+            cmap="Blues",
+            ax=ax
+        )
+        ax.set_xlabel("Predicted Label")
+        ax.set_ylabel("True Label")
+        ax.set_title("Confusion Matrix")
+        st.pyplot(fig)
+        
+        #Classification Report
+        report = classification_report(y_test, y_pred)
+        st.text(report)
+    
+    if result is not None:
+        dataf = pd.DataFrame(
+        result.items(),
+        columns=["Metric", "Value"]
+        )
+        st.dataframe(dataf)
