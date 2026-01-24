@@ -22,7 +22,7 @@ uploaded_file = st.file_uploader(
     "📂 Upload Test Dataset (CSV)",
     type=["csv"]
 )
-
+result = None
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     st.success("Dataset uploaded successfully!")
