@@ -70,12 +70,12 @@ if uploaded_file is not None:
     y_test = None
     y_pred = None
     if model_name == "Logistic Regression":
-        result, y_test, y_pred = logistic_model(X,y)
+        #result, y_test, y_pred = logistic_model(X,y)
     
     if model_name != "Select the Model":
         #printing model 
         st.subheader("📈 Evaluation Matrix")
-        st.write(result)
+        st.write(logistic_model(X,y))
         
         #printing confusion matrix.
         st.subheader("📊 Confusion Matrix")
