@@ -56,7 +56,7 @@ if uploaded_file is not None:
     model_name = st.selectbox(
         "🤖 Select Classification Model",
         [
-            "Select the Model"
+            "Select the Model",
             "Logistic Regression",
             "Decision Tree",
             "K-Nearest Neighbors"
