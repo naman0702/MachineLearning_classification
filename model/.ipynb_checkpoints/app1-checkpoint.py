@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 
 from sklearn.model_selection import train_test_split
+from models.logistic import logistic_model
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -45,9 +46,9 @@ if uploaded_file is not None:
     
     #print(y)
     # Step 6: Train-test split 20% test 80% training and random sample is 50
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=50, stratify=y
-    )
+    #X_train, X_test, y_train, y_test = train_test_split(
+    #    X, y, test_size=0.2, random_state=50, stratify=y
+    #)
 
     # --------------------------------------------------
     # (b) Model selection dropdown
@@ -55,8 +56,16 @@ if uploaded_file is not None:
     model_name = st.selectbox(
         "🤖 Select Classification Model",
         [
+            "Select the Model"
             "Logistic Regression",
             "Decision Tree",
             "K-Nearest Neighbors"
+            "Navie Bayes Classification"
+            "Random Forest"
+            "XGB Classifier"
         ]
     )
+    if model_name == "Logistic Regression":
+        result = logistic_model(X,y)
+    st.subheader("📈 Model Performance")
+    st.write(result)
