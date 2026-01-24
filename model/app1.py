@@ -77,8 +77,13 @@ if uploaded_file is not None:
     
     if model_name != "Select the Model":#printing model 
         st.subheader("📈 Evaluation Matrix")
-        st.write(logistic_model(X,y))
-                
+        #st.write(logistic_model(X,y))
+         if result is not None:
+            dataf = pd.DataFrame(
+            result.items(),
+            columns=["Metric", "Value"]
+            )
+            st.dataframe(dataf)        
         #printing confusion matrix.
         st.subheader("📊 Confusion Matrix")
         col1,spacer, col2 = st.columns([1,0.3,2])
@@ -102,9 +107,4 @@ if uploaded_file is not None:
             st.subheader("📄 Classification Matrix")
             st.text(classification_report(y_test, y_pred))
     
-    if result is not None:
-        dataf = pd.DataFrame(
-        result.items(),
-        columns=["Metric", "Value"]
-        )
-        st.dataframe(dataf)
+   
