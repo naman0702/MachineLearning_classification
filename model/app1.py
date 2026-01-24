@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 from sklearn.model_selection import train_test_split
-from models.logistic import logistic_model
+from logistic import logistic_model
 import seaborn as sns
 import matplotlib.pyplot as plt
 
