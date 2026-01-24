@@ -69,7 +69,7 @@ if uploaded_file is not None:
     )
     y_test = None
     y_pred = None
-   if model_name == "Logistic Regression":
+    if model_name == "Logistic Regression":
         output = logistic_model(X,y)
         result = output[0]
         y_test = output[1]
