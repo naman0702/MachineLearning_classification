@@ -75,11 +75,10 @@ if uploaded_file is not None:
         y_test = output[1]
         y_pred = output[2]
     
-    if model_name != "Select the Model":
-        #printing model 
+    if model_name != "Select the Model":#printing model 
         st.subheader("📈 Evaluation Matrix")
         st.write(logistic_model(X,y))
-        
+                
         #printing confusion matrix.
         st.subheader("📊 Confusion Matrix")
         cm = confusion_matrix(y_test, y_pred)
@@ -95,7 +94,7 @@ if uploaded_file is not None:
         ax.set_ylabel("True Label")
         ax.set_title("Confusion Matrix")
         st.pyplot(fig)
-        
+                
         #Classification Report
         report = classification_report(y_test, y_pred)
         st.text(report)
