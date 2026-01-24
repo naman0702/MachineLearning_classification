@@ -69,3 +69,8 @@ if uploaded_file is not None:
         result = logistic_model(X,y)
     st.subheader("📈 Model Performance")
     st.write(result)
+    dataf = pd.DataFrame(
+    result.items(),
+    columns=["Metric", "Value"]
+    )
+    st.dataframe(dataf)
