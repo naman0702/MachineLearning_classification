@@ -78,7 +78,7 @@ if uploaded_file is not None:
     if model_name != "Select the Model":#printing model 
         st.subheader("📈 Evaluation Matrix")
         #st.write(logistic_model(X,y))
-         if result is not None:
+        if result is not None:
             dataf = pd.DataFrame(
             result.items(),
             columns=["Metric", "Value"]
