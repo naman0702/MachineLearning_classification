@@ -81,7 +81,7 @@ if uploaded_file is not None:
                 
         #printing confusion matrix.
         st.subheader("📊 Confusion Matrix")
-        col1, col2 = st.columns([1, 2])
+        col1,spacer, col2 = st.columns([1,0.3,2])
         cm = confusion_matrix(y_test, y_pred)
         with col1:
             fig, ax = plt.subplots()
@@ -99,6 +99,7 @@ if uploaded_file is not None:
 
         with col2:
             #Classification Report
+            st.subheader("📄 Classification Matrix")
             st.text(classification_report(y_test, y_pred))
     
     if result is not None:
