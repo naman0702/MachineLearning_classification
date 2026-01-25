@@ -66,9 +66,9 @@ if uploaded_file is not None:
             "Select the Model",
             "Logistic Regression",
             "Decision Tree",
-            "K-Nearest Neighbors"
-            "Navie Bayes Classification"
-            "Random Forest"
+            "K-Nearest Neighbors",
+            "Navie Bayes Classification",
+            "Random Forest",
             "XGB Classifier"
         ]
     )
