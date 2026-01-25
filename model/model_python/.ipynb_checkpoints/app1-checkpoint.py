@@ -13,6 +13,7 @@ from decision_tree import decision_classifier
 from knn import knn_classifier
 from naiveBayes import nb_classifier
 from random_forest import rf_classifier
+from XGB import xgb_classifier
 
 st.set_page_config(page_title="ML Model Evaluation App", layout="wide")
 st.title("📊 Machine Learning Model Evaluation Dashboard")
@@ -106,7 +107,7 @@ if uploaded_file is not None:
         y_pred = output[2]
     elif model_name == "XGB Classifier":
         st.subheader("XGB Classifier")
-        output = decision_classifier(X,y)
+        output = xgb_classifier(X,y)
         result = output[0]
         y_test = output[1]
         y_pred = output[2]
