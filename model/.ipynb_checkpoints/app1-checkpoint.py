@@ -3,11 +3,12 @@ import pandas as pd
 import numpy as np
 
 from sklearn.model_selection import train_test_split
-from logistic import logistic_model
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
+from logistic import logistic_model
+from decision_tree import decision_classifier
 
 st.set_page_config(page_title="ML Model Evaluation App", layout="wide")
 st.title("📊 Machine Learning Model Evaluation Dashboard")
@@ -71,6 +72,11 @@ if uploaded_file is not None:
     y_pred = None
     if model_name == "Logistic Regression":
         output = logistic_model(X,y)
+        result = output[0]
+        y_test = output[1]
+        y_pred = output[2]
+    elif model_name == "Decision Tree":
+        output = decision_classifier(X,y)
         result = output[0]
         y_test = output[1]
         y_pred = output[2]
