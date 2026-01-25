@@ -11,6 +11,10 @@ from sklearn.metrics import (
     matthews_corrcoef
 )
 def decision_classifier(X,y):
+    # Train-test split
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=40
+    )
     # Create model
     model = DecisionTreeClassifier(
         criterion="gini",
