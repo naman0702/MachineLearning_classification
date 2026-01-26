@@ -138,12 +138,12 @@ if uploaded_file is not None:
             )
             ax.set_xlabel("Predicted Label")
             ax.set_ylabel("True Label")
-            ax.set_title("Confusion Matrix")
+            st.subheader("Confusion Matrix")
             st.pyplot(fig)
 
         with col2:
             #Classification Report
-            st.subheader("📄 Classification Matrix")
+            st.subheader("📄 Classification Report")
             st.text(classification_report(y_test, y_pred))
     
    
