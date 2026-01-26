@@ -124,7 +124,7 @@ if uploaded_file is not None:
             )
             st.dataframe(dataf)        
         #printing confusion matrix.
-        st.subheader("📊 Confusion Matrix")
+        st.subheader("📊 Confusion Matrix & Classification Report")
         col1,spacer, col2 = st.columns([1,0.3,2])
         cm = confusion_matrix(y_test, y_pred)
         with col1:
