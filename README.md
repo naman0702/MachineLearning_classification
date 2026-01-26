@@ -26,6 +26,7 @@ XGBoost (Ensemble)	0.964912280701754	0.991111111111111	0.926829268292683	0.97435
 <img width="3053" height="267" alt="image" src="https://github.com/user-attachments/assets/9ae75b29-b36b-4f30-a56f-21907a3fb0ae" />
 
 **Observations on the performance of each model**
+
 **Logistic Regression**
 Logistic Regression achieves the best overall performance with an Accuracy of 98.25%, AUC of 0.996, Precision of 1.00, Recall of 0.952, F1-score of 0.976, and MCC of 0.963. These values indicate excellent class separation and highly balanced predictions.
 
