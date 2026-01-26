@@ -31,18 +31,6 @@ uploaded_file = st.file_uploader(
     "📂 Upload Test Dataset (CSV)",
     type=["csv"]
 )
-model_name = st.selectbox(
-        "🤖 Select Classification Model",
-        [
-            "Select the Model",
-            "Logistic Regression",
-            "Decision Tree",
-            "K-Nearest Neighbors",
-            "Navie Bayes Classification",
-            "Random Forest",
-            "XGB Classifier"
-        ]
-    )
 result = None
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
@@ -75,7 +63,18 @@ if uploaded_file is not None:
     # --------------------------------------------------
     # (b) Model selection dropdown
     # --------------------------------------------------
-    
+    model_name = st.selectbox(
+        "🤖 Select Classification Model",
+        [
+            "Select the Model",
+            "Logistic Regression",
+            "Decision Tree",
+            "K-Nearest Neighbors",
+            "Navie Bayes Classification",
+            "Random Forest",
+            "XGB Classifier"
+        ]
+    )
     y_test = None
     y_pred = None
     if model_name == "Logistic Regression":
