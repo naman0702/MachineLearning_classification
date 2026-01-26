@@ -14,6 +14,7 @@ from knn import knn_classifier
 from naiveBayes import nb_classifier
 from random_forest import rf_classifier
 from XGB import xgb_classifier
+from classification import preprocess_data
 
 st.set_page_config(page_title="ML Model Evaluation App", layout="wide")
 st.title("📊 Machine Learning Model Evaluation Dashboard")
@@ -33,24 +34,22 @@ uploaded_file = st.file_uploader(
 result = None
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
-    st.success("Dataset uploaded successfully!")
-
-    st.subheader("🔍 Dataset Preview")
-    st.dataframe(df.head(), use_container_width=True)
-
-    # --------------------------------------------------
-    # Assume last column is target
-    # --------------------------------------------------
-    # Step 1: Drop unnecessary columns
-    df.drop(columns=["id", "Unnamed: 32"], inplace=True)
-    
-    # Step 2: Encode target variable
-    # M = 1 (Malignant), B = 0 (Benign)
-    df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0}) #we are changing M and B to o,1 as in ML world string won't help.
-    
-    # Step 3: Separate features and target
-    X = df.drop("diagnosis", axis=1) #we don't want this as an input as we have to predict this.
-    y = df["diagnosis"]
+    #st.success("Dataset uploaded successfully!")
+    #st.subheader("🔍 Dataset Preview")
+    #st.dataframe(df.head(), use_container_width=True)
+    ## --------------------------------------------------
+    ## Assume last column is target
+    ## --------------------------------------------------
+    ## Step 1: Drop unnecessary columns
+    #df.drop(columns=["id", "Unnamed: 32"], inplace=True)
+    #
+    ## Step 2: Encode target variable
+    ## M = 1 (Malignant), B = 0 (Benign)
+    #df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0}) #we are changing M and B to o,1 as in ML world string won't help.
+    #
+    ## Step 3: Separate features and target
+    #X = df.drop("diagnosis", axis=1) #we don't want this as an input as we have to predict this.
+    #y = df["diagnosis"]
     
     #print(y)
     # Step 6: Train-test split 20% test 80% training and random sample is 50
@@ -58,6 +57,9 @@ if uploaded_file is not None:
     #    X, y, test_size=0.2, random_state=50, stratify=y
     #)
 
+    #Making dynamic feture engineering
+    X, y, target_column = preprocess_data(df, target_column=None)
+    
     # --------------------------------------------------
     # (b) Model selection dropdown
     # --------------------------------------------------

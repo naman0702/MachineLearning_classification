@@ -1,14 +1,19 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
+
 def preprocess_data(df, target_column=None):
     df = df.copy()
 
     # ---------------------------
     # 1. Drop ID-like columns
     # ---------------------------
-    drop_cols = [c for c in df.columns 
-                 if "id" in c.lower() or "unnamed" in c.lower()]
+    drop_cols = [
+        c for c in df.columns
+        if c.lower() in ["id", "no", "index", "sno", "srno"]
+           or c.lower().startswith("unnamed")]
+
+    print(drop_cols)
     df.drop(columns=drop_cols, inplace=True)
 
     # ---------------------------
