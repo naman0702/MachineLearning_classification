@@ -43,3 +43,5 @@ Random Forest obtains an Accuracy of 95.61%, AUC of 0.988, Precision of 0.925, R
 
 XGBoost (Ensemble)
 XGBoost shows an Accuracy of 96.49%, AUC of 0.991, Precision of 0.927, Recall of 0.974, F1-score of 0.950, and MCC of 0.924. Its performance is similar to the Decision Tree and does not exceed simpler models such as Logistic Regression or kNN.
+
+<img width="3794" height="267" alt="image" src="https://github.com/user-attachments/assets/1dc33a2a-2fda-4a04-bcaa-3804f9f1fc5b" />
