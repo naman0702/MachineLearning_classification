@@ -34,9 +34,9 @@ uploaded_file = st.file_uploader(
 result = None
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
-    #st.success("Dataset uploaded successfully!")
-    #st.subheader("🔍 Dataset Preview")
-    #st.dataframe(df.head(), use_container_width=True)
+    st.success("Dataset uploaded successfully!")
+    st.subheader("🔍 Dataset Preview")
+    st.dataframe(df.head(), use_container_width=True)
     ## --------------------------------------------------
     ## Assume last column is target
     ## --------------------------------------------------
