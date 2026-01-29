@@ -13,7 +13,6 @@ def preprocess_data(df, target_column=None):
         if c.lower() in ["id", "no", "index", "sno", "srno"]
            or c.lower().startswith("unnamed")]
 
-    print(drop_cols)
     df.drop(columns=drop_cols, inplace=True)
 
     # ---------------------------
