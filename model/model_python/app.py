@@ -39,7 +39,7 @@ with st.sidebar:
     st.header("⚙ Settings")
     
     st.subheader("📥 used/sample Dataset")
-    with open("data/data.csv", "rb") as file:
+    with open("../data/data.csv", "rb") as file:
         st.download_button(
             label="Download Sample CSV",
             data=file,
