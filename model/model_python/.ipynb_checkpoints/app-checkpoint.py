@@ -109,7 +109,7 @@ if uploaded_file is not None:
         # --------------------------------------------------
         st.subheader("📈 Evaluation Metrics")
 
-        c1, c2, c3, c4, c5,c6 = st.columns(5)
+        c1, c2, c3, c4, c5,c6 = st.columns(6)
 
         c1.metric("Accuracy", f"{result['Accuracy']:.3f}")
         c2.metric("Precision", f"{result['Precision']:.3f}")
