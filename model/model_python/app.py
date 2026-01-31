@@ -37,9 +37,8 @@ st.divider()
 # --------------------------------------------------
 with st.sidebar:
     st.header("⚙ Settings")
-    with st.sidebar:
-    st.header("📥 used/sample Dataset")
-
+    
+    st.subheader("📥 used/sample Dataset")
     with open("data/data.csv", "rb") as file:
         st.download_button(
             label="Download Sample CSV",
