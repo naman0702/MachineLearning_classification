@@ -37,7 +37,16 @@ st.divider()
 # --------------------------------------------------
 with st.sidebar:
     st.header("⚙ Settings")
+    with st.sidebar:
+    st.header("📥 used/sample Dataset")
 
+    with open("data/data.csv", "rb") as file:
+        st.download_button(
+            label="Download Sample CSV",
+            data=file,
+            file_name="data.csv",
+            mime="text/csv"
+        )
     uploaded_file = st.file_uploader(
         "📂 Upload Test Dataset (CSV)",
         type=["csv"]
