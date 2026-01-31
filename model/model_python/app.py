@@ -1,12 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+
+from sklearn.model_selection import train_test_split
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-from sklearn.metrics import confusion_matrix, classification_report
-
-# Importing model functions
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+#importing python file functions.
 from logistic import logistic_model
 from decision_tree import decision_classifier
 from knn import knn_classifier
@@ -108,13 +109,14 @@ if uploaded_file is not None:
         # --------------------------------------------------
         st.subheader("📈 Evaluation Metrics")
 
-        c1, c2, c3, c4, c5 = st.columns(5)
+        c1, c2, c3, c4, c5,c6 = st.columns(5)
 
-        c1.metric("Accuracy", f"{result['accuracy']:.3f}")
-        c2.metric("Precision", f"{result['precision']:.3f}")
-        c3.metric("Recall", f"{result['recall']:.3f}")
-        c4.metric("F1 Score", f"{result['f1']:.3f}")
-        c5.metric("AUC", f"{result['auc']:.3f}")
+        c1.metric("Accuracy", f"{result['Accuracy']:.3f}")
+        c2.metric("Precision", f"{result['Precision']:.3f}")
+        c3.metric("Recall", f"{result['Recall']:.3f}")
+        c4.metric("F1 Score", f"{result['F1']:.3f}")
+        c5.metric("AUC", f"{result['AUC']:.3f}")
+        c6.metric("MCC", f"{result['MCC']:.3f}")
 
         st.divider()
 
