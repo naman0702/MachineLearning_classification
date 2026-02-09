@@ -26,11 +26,11 @@ The 30 feature columns describe cell nuclei characteristics such as radius, text
 
 **d) Observations on the performance of each model**
 
-| ML Model Name             | Observation about model performance |
-|--------------------------|-------------------------------------|
-| Logistic Regression      | Achieves the best overall performance with very high accuracy, perfect precision, excellent AUC, and strong F1 and MCC, indicating excellent class separation and balanced predictions. |
-| Decision Tree            | Shows strong recall and high overall accuracy, capturing most malignant cases, but slightly lower precision leads to some false positives. |
-| kNN                      | Provides well-balanced performance with high accuracy, precision, recall, and F1-score, indicating reliable and stable classification. |
-| Naive Bayes              | Performs well in detecting malignant cases with high recall and good F1-score, though precision is slightly lower compared to kNN. |
-| Random Forest (Ensemble) | Delivers reasonably strong performance but is weaker than other models in terms of overall balance and correlation. |
-| XGBoost (Ensemble)       | Exhibits performance similar to Decision Tree with high recall, but does not outperform simpler models such as Logistic Regression or kNN. |
+| **ML Model Name** | **Observation about Model Performance** |
+|------------------|------------------------------------------|
+| **Logistic Regression** | Logistic Regression achieves the best overall performance with an Accuracy of 98.25%, AUC of 0.996, Precision of 1.00, Recall of 0.952, F1-score of 0.976, and MCC of 0.963. These values indicate excellent class separation and highly balanced predictions. |
+| **Decision Tree** | The Decision Tree model records an Accuracy of 96.49%, AUC of 0.991, Precision of 0.927, Recall of 0.974, F1-score of 0.950, and MCC of 0.924. It shows strong recall but slightly lower precision, meaning it captures most malignant cases but with some false positives. |
+| **kNN** | kNN achieves an Accuracy of 97.37%, AUC of 0.984, Precision of 0.974, Recall of 0.949, F1-score of 0.961, and MCC of 0.941. These results indicate a well-balanced and reliable classification performance. |
+| **Naive Bayes** | Naive Bayes reports an Accuracy of 97.37%, AUC of 0.990, Precision of 0.950, Recall of 0.974, F1-score of 0.962, and MCC of 0.943. It performs well in identifying malignant cases, though precision is slightly lower than kNN. |
+| **Random Forest (Ensemble)** | Random Forest obtains an Accuracy of 95.61%, AUC of 0.988, Precision of 0.925, Recall of 0.949, F1-score of 0.937, and MCC of 0.903. While reasonably strong, it performs weaker than most other models in overall correlation and balance. |
+| **XGBoost (Ensemble)** | XGBoost shows an Accuracy of 96.49%, AUC of 0.991, Precision of 0.927, Recall of 0.974, F1-score of 0.950, and MCC of 0.924. Its performance is similar to the Decision Tree and does not exceed simpler models such as Logistic Regression or kNN. |
