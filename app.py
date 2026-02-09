@@ -40,7 +40,7 @@ with st.sidebar:
     
     st.subheader("📥 used/sample Dataset")
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    sample_path = os.path.join(BASE_DIR, "..", "data", "data.csv")
+    sample_path = os.path.join(BASE_DIR, "model", "data", "data.csv")
     with open(sample_path, "rb") as file:
         st.download_button(
             label="Download Sample CSV",
@@ -163,3 +163,4 @@ if uploaded_file is not None:
 
 else:
     st.info("👈 Upload a CSV file from the sidebar to begin.")
+
